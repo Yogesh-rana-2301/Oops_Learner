@@ -141,3 +141,101 @@ Resource released.
 ```
 
 If you were to comment out `delete rhPtr;`, the "Resource released." message would never be printed, and the memory for `data` would be leaked. This is why smart pointers (`std::unique_ptr`, `std::shared_ptr`) are heavily recommended for managing heap-allocated objects, as they automate the call to `delete`.
+
+## Destructors and Polymorphism (Virtual Destructors)
+
+A critical issue arises when you delete a dynamically allocated object through a pointer to a base class. If the base class destructor is not `virtual`, only the base class destructor will be called, even if the pointer is actually pointing to a derived class object. This leads to the derived class's resources not being cleaned up, causing resource leaks and undefined behavior.
+
+**Rule of Thumb:** If a class is intended to be a base class in a polymorphic hierarchy, its destructor **must** be declared `virtual`.
+
+### Example: The Problem without a Virtual Destructor
+
+```cpp
+#include <iostream>
+
+class Base {
+public:
+    Base() { std::cout << "Base Constructor\n"; }
+    // Non-virtual destructor
+    ~Base() { std::cout << "Base Destructor\n"; }
+};
+
+class Derived : public Base {
+private:
+    int* _data;
+public:
+    Derived() {
+        _data = new int[100];
+        std::cout << "Derived Constructor (resources allocated)\n";
+    }
+    ~Derived() {
+        delete[] _data;
+        std::cout << "Derived Destructor (resources released)\n";
+    }
+};
+
+int main() {
+    Base* b = new Derived();
+    // b is a Base pointer, but it points to a Derived object
+
+    delete b; // Problem here!
+
+    return 0;
+}
+```
+
+**Incorrect Output:**
+
+```
+Base Constructor
+Derived Constructor (resources allocated)
+Base Destructor
+```
+
+Notice that the `Derived` destructor was never called. The memory allocated for `_data` is now leaked.
+
+### Example: The Solution with a Virtual Destructor
+
+By simply adding the `virtual` keyword to the base class destructor, we ensure that the correct destructor chain is called.
+
+```cpp
+#include <iostream>
+
+class Base {
+public:
+    Base() { std::cout << "Base Constructor\n"; }
+    // Virtual destructor
+    virtual ~Base() { std::cout << "Base Destructor\n"; }
+};
+
+class Derived : public Base {
+private:
+    int* _data;
+public:
+    Derived() {
+        _data = new int[100];
+        std::cout << "Derived Constructor (resources allocated)\n";
+    }
+    ~Derived() {
+        delete[] _data;
+        std::cout << "Derived Destructor (resources released)\n";
+    }
+};
+
+int main() {
+    Base* b = new Derived();
+    delete b; // Works correctly now
+    return 0;
+}
+```
+
+**Correct Output:**
+
+```
+Base Constructor
+Derived Constructor (resources allocated)
+Derived Destructor (resources released)
+Base Destructor
+```
+
+With `virtual ~Base()`, when `delete b` is called, the program sees that `b` points to a `Derived` object and calls the `Derived` destructor first. The `Derived` destructor then automatically calls the `Base` destructor, ensuring that all resources are cleaned up correctly in the reverse order of construction.

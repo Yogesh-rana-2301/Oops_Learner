@@ -117,6 +117,96 @@ public:
 
 Constructor overloading is the practice of defining multiple constructors in the same class, each with a different set of parameters (different number of parameters or different types of parameters). This provides flexibility in how objects are created.
 
+## Copy Constructor
+
+A copy constructor is a special constructor that creates a new object as a copy of an existing object. It's used to initialize a new object from an existing one.
+
+The syntax for a copy constructor is:
+
+`ClassName(const ClassName &old_obj);`
+
+- `const`: The `old_obj` is passed as a `const` reference because the copy constructor should not modify the original object.
+- `&`: It's passed by reference to avoid making another copy, which would lead to an infinite recursive call to the copy constructor.
+
+If you don't define a copy constructor, the compiler provides a default one. The default copy constructor performs a **shallow copy**, which means it copies the values of the member variables bit by bit.
+
+### Shallow Copy vs. Deep Copy
+
+- **Shallow Copy (Default):** The compiler-provided copy constructor does a shallow copy. If the object contains pointers, only the pointer addresses are copied, not the data they point to. Both the original and the copied object will point to the same memory location. This can lead to problems like double-freeing memory.
+
+- **Deep Copy (User-Defined):** When you have pointers or dynamic memory allocation in your class, you should define your own copy constructor to perform a deep copy. A deep copy allocates new memory for the copied object and copies the actual data, so the original and the copy are independent.
+
+### Example: User-Defined Copy Constructor (Deep Copy)
+
+```cpp
+#include <iostream>
+#include <string>
+
+class Wall {
+private:
+    double length;
+    double height;
+    int* style;
+
+public:
+    // Parameterized constructor
+    Wall(double len, double h, int s) {
+        length = len;
+        height = h;
+        style = new int(s);
+        std::cout << "Parameterized constructor called." << std::endl;
+    }
+
+    // Copy constructor (Deep Copy)
+    Wall(const Wall &other) {
+        length = other.length;
+        height = other.height;
+        style = new int(*other.style); // Allocate new memory and copy the value
+        std::cout << "Copy constructor called." << std::endl;
+    }
+
+    // Destructor to release memory
+    ~Wall() {
+        delete style;
+        std::cout << "Destructor called." << std::endl;
+    }
+
+    void setStyle(int s) {
+        *style = s;
+    }
+
+    void print() {
+        std::cout << "Length: " << length << ", Height: " << height << ", Style: " << *style << std::endl;
+    }
+};
+
+int main() {
+    // Create an object
+    Wall wall1(10.5, 2.5, 1);
+    wall1.print();
+
+    // Create a copy using the copy constructor
+    Wall wall2 = wall1;
+    wall2.print();
+
+    // Modify the style of wall2
+    // If it were a shallow copy, this would also change wall1's style
+    wall2.setStyle(2);
+
+    std::cout << "After modifying wall2:" << std::endl;
+    wall1.print(); // Unchanged
+    wall2.print(); // Changed
+
+    return 0;
+}
+```
+
+### When is a Copy Constructor Called?
+
+1.  When an object is initialized from another object of the same class: `Wall wall2 = wall1;` or `Wall wall2(wall1);`
+2.  When an object is passed by value to a function.
+3.  When an object is returned by value from a function.
+
 ### Example
 
 ```cpp
