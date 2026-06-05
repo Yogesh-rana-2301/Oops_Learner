@@ -7,7 +7,7 @@ Key properties of a destructor:
 - It has the same name as the class, preceded by a tilde (`~`).
 - It does not have a return type (not even `void`).
 - It cannot take any arguments (and therefore cannot be overloaded).
-- A class can only have one destructor.
+- <mark>A class can only have one destructor</mark>.
 
 ### When is a Destructor Called?
 
@@ -61,7 +61,7 @@ The way a destructor is invoked depends on whether the object was allocated on t
 
 ### Stack Object Destruction
 
-Objects created on the stack are automatically managed. Their destructors are called as soon as they go out of scope. This is known as **RAII (Resource Acquisition Is Initialization)**, a core concept in C++. The destruction happens in the reverse order of construction.
+Objects created on the stack are automatically managed. Their destructors are called as soon as they go out of scope. This is known as **RAII (Resource Acquisition Is Initialization)**, a core concept in C++. <mark>The destruction happens in the reverse order of construction</mark>.
 
 ```cpp
 #include <iostream>
