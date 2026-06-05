@@ -2,7 +2,7 @@
 
 ## Why OOP Exists
 
-Object-Oriented Programming (OOP) emerged to manage the increasing complexity of software development. As programs grew larger, procedural programming, which revolves around functions and procedures, became difficult to maintain and scale.
+<mark>Object-Oriented Programming (OOP)</mark> emerged to manage the increasing complexity of software development. As programs grew larger, procedural programming, which revolves around functions and procedures, became difficult to maintain and scale.
 
 OOP provides a way to structure programs by bundling data and the functions that operate on that data into a single unit called an "object". This approach brings several advantages:
 
