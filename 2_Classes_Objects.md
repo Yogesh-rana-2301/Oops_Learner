@@ -26,7 +26,7 @@ protected:
 - `ClassName`: The name of the class.
 - `public`, `private`, `protected`: Access specifiers that define the visibility of the members.
   - `public`: Members are accessible from anywhere.
-  - `private`: Members are only accessible from within the class itself. This is the default access specifier if none is provided.
+  - `private`: Members are only accessible from within the class itself. This is the <mark>default</mark> access specifier if none is provided.
   - `protected`: Members are accessible within the class and by subclasses (inheritance).
 
 ### Example
