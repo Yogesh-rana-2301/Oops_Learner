@@ -1,3 +1,5 @@
+✅ __kritsnasya__ 07/06/2026
+
 # 14. Constructor and Destructor Order in Inheritance
 
 When you create an object of a derived class, the constructors of both the base class and the derived class are called. Similarly, when the object is destroyed, the destructors of both are called. The order in which these calls happen is fixed and logical.
@@ -125,4 +127,4 @@ Derived destructor called.
 Base destructor called.
 ```
 
-**Important Note:** For this automatic destructor chaining to work correctly with polymorphism (i.e., when deleting a derived object through a base class pointer), the base class destructor **must** be declared `virtual`.
+**Important Note:** <mark>For this automatic destructor chaining to work correctly with polymorphism (i.e., when deleting a derived object through a base class pointer), the base class destructor **must** be declared `virtual`.</mark>
