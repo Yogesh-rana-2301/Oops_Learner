@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 07/06/2026
+
 # 13. Modes of Inheritance
 
 In C++, when a class inherits from a base class, you can specify an **inheritance mode**. This mode determines the access level of the inherited members from the base class in the derived class. It acts as a filter, potentially restricting the access of members that were more accessible in the base class.
