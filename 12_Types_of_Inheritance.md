@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 07/06/2026
+
 # 12. Types of Inheritance
 
 In C++, inheritance can be structured in several ways, depending on how many base and derived classes are involved. The primary types of inheritance are:
@@ -28,14 +30,14 @@ This is the simplest form of inheritance, where a derived class inherits from on
 class Animal { // Base class
 public:
     void eat() {
-        std::cout << "Eating..." << std::endl;
+        cout << "Eating..." << endl;
     }
 };
 
 class Dog : public Animal { // Derived class
 public:
     void bark() {
-        std::cout << "Barking..." << std::endl;
+        cout << "Barking..." << endl;
     }
 };
 
@@ -68,14 +70,14 @@ In multiple inheritance, a single derived class inherits from **two or more** ba
 class Camera {
 public:
     void takePhoto() {
-        std::cout << "Taking a photo..." << std::endl;
+        cout << "Taking a photo..." << endl;
     }
 };
 
 class Phone {
 public:
     void makeCall() {
-        std::cout << "Making a call..." << std::endl;
+        cout << "Making a call..." << endl;
     }
 };
 
@@ -83,7 +85,7 @@ public:
 class SmartPhone : public Camera, public Phone {
 public:
     void browseInternet() {
-        std::cout << "Browsing the internet..." << std::endl;
+        cout << "Browsing the internet..." << endl;
     }
 };
 
@@ -120,21 +122,21 @@ In multilevel inheritance, a derived class becomes the base class for another cl
 class Grandparent {
 public:
     void sleep() {
-        std::cout << "Sleeping..." << std::endl;
+        cout << "Sleeping..." << endl;
     }
 };
 
 class Parent : public Grandparent { // Inherits from Grandparent
 public:
     void work() {
-        std::cout << "Working..." << std::endl;
+        cout << "Working..." << endl;
     }
 };
 
 class Child : public Parent { // Inherits from Parent
 public:
     void play() {
-        std::cout << "Playing..." << std::endl;
+        cout << "Playing..." << endl;
     }
 };
 
@@ -174,12 +176,12 @@ protected:
 
 class Circle : public Shape { // Derived class 1
 public:
-    void draw() { std::cout << "Drawing a circle of size " << size << std::endl; }
+    void draw() { cout << "Drawing a circle of size " << size << endl; }
 };
 
 class Square : public Shape { // Derived class 2
 public:
-    void draw() { std::cout << "Drawing a square of size " << size << std::endl; }
+    void draw() { cout << "Drawing a square of size " << size << endl; }
 };
 
 int main() {

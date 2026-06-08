@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 07/06/2026
+
 # 11. Inheritance Basics
 
 Inheritance is one of the most important concepts in Object-Oriented Programming (OOP). It is a mechanism that allows a new class (called the **derived class** or **subclass**) to acquire the properties and behaviors (methods and attributes) of an existing class (called the **base class** or **superclass**).

@@ -20,7 +20,7 @@ returnType functionName(parameters) const;
 
 1.  **Safety:** It prevents the function from accidentally changing the state of the object.
 2.  **Clarity:** It clearly communicates to anyone using the class that this function is a "read-only" operation.
-3.  **Allows Calling on `const` Objects:** This is the most important reason. You can only call `const` member functions on `const` objects.
+3.  **Allows Calling on `const` Objects:** This is the most important reason. <mark>You can only call `const` member functions on `const` objects.</mark>
 
 ### Example
 
@@ -30,19 +30,19 @@ returnType functionName(parameters) const;
 
 class Book {
 private:
-    std::string title;
+    string title;
     int pageCount;
 
 public:
-    Book(std::string t, int p) : title(t), pageCount(p) {}
+    Book(string t, int p) : title(t), pageCount(p) {}
 
     // A non-const member function (can modify the object)
-    void setTitle(std::string newTitle) {
+    void setTitle(string newTitle) {
         title = newTitle;
     }
 
     // A const member function (promises not to modify the object)
-    std::string getTitle() const {
+    string getTitle() const {
         // ERROR: Cannot modify a member in a const function
         // pageCount++; // This would cause a compile error
         return title;
@@ -56,7 +56,7 @@ public:
 
 void printBookTitle(const Book& book) {
     // 'book' is a const reference, so we can only call const member functions on it
-    std::cout << book.getTitle() << std::endl;
+    cout << book.getTitle() << endl;
 
     // ERROR: Cannot call a non-const function on a const object/reference
     // book.setTitle("New Title"); // This would cause a compile error
@@ -69,10 +69,10 @@ int main() {
     const Book b2("1984", 328);
 
     // Calling const functions on a non-const object is OK
-    std::cout << b1.getTitle() << std::endl;
+    cout << b1.getTitle() << endl;
 
     // Calling const functions on a const object is OK
-    std::cout << b2.getTitle() << std::endl;
+    cout << b2.getTitle() << endl;
 
     // Calling a non-const function on a const object is an ERROR
     // b2.setTitle("Animal Farm"); // This would cause a compile error

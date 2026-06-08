@@ -88,20 +88,20 @@ Members declared as `protected` are a middle ground between `public` and `privat
 
 class Person {
 protected:
-    std::string name; // Protected attribute
+    string name; // Protected attribute
 
 public:
-    Person(std::string n) : name(n) {}
+    Person(string n) : name(n) {}
 };
 
 class Student : public Person {
 public:
     // The Student constructor needs to initialize the Person part of the object
-    Student(std::string n) : Person(n) {}
+    Student(string n) : Person(n) {}
 
     void introduce() {
         // OK: Derived class can access protected member of the base class
-        std::cout << "Hi, my name is " << name << " and I am a student." << std::endl;
+        cout << "Hi, my name is " << name << " and I am a student." << endl;
     }
 };
 

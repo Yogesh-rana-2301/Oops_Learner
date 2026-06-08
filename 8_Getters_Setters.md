@@ -17,17 +17,17 @@ By using getters and setters instead of making member variables public, a class 
 
 class Student {
 private:
-    std::string name;
+    string name;
     int age;
 
 public:
     // Setter for 'name'
-    void setName(std::string newName) {
+    void setName(string newName) {
         name = newName;
     }
 
     // Getter for 'name'
-    std::string getName() {
+    string getName() {
         return name;
     }
 
@@ -50,8 +50,8 @@ int main() {
     s1.setAge(20);
 
     // Use getters to retrieve the private data
-    std::cout << "Name: " << s1.getName() << std::endl;
-    std::cout << "Age: " << s1.getAge() << std::endl;
+    cout << "Name: " << s1.getName() << endl;
+    cout << "Age: " << s1.getAge() << endl;
 
     return 0;
 }
@@ -59,7 +59,7 @@ int main() {
 
 ## Validation Logic
 
-The most powerful feature of setters is their ability to contain validation logic. This ensures that the object's state remains valid and consistent. You cannot do this with public member variables.
+The most powerful feature of setters is their ability to <mark>contain validation logic</mark>. This ensures that the object's state remains valid and consistent. You cannot do this with public member variables.
 
 ### Example: Setter with Validation
 
@@ -82,7 +82,7 @@ public:
             kelvin = k;
         } else {
             // Handle the error: either do nothing, set a default, or throw an exception
-            std::cout << "Error: Temperature cannot be negative." << std::endl;
+            cout << "Error: Temperature cannot be negative." << endl;
         }
     }
 
@@ -101,12 +101,12 @@ int main() {
     Temperature t;
 
     t.setKelvin(300); // OK
-    std::cout << "Temperature is " << t.getKelvin() << "K" << std::endl;
-    std::cout << "Which is " << t.getCelsius() << "C" << std::endl;
+    cout << "Temperature is " << t.getKelvin() << "K" <<endl;
+    cout << "Which is " << t.getCelsius() << "C" << endl;
 
-    std::cout << "\nAttempting to set a negative temperature..." << std::endl;
+    cout << "\nAttempting to set a negative temperature..." << endl;
     t.setKelvin(-10); // This will trigger the error message
-    std::cout << "Temperature is now " << t.getKelvin() << "K" << std::endl; // Value remains 300
+    cout << "Temperature is now " << t.getKelvin() << "K" << endl; // Value remains 300
 
     return 0;
 }

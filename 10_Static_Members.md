@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 06/06/2026
+
 # 10. Static Members
 
 In C++, the `static` keyword is used to create members (both variables and functions) that belong to the class itself, rather than to any specific object instance. This means there is only one copy of a static member, which is shared by all objects of that class.

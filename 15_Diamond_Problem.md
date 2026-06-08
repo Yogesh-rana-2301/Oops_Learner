@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 07/06/2026
+
 # 15. The Diamond Problem
 
 The Diamond Problem is a well-known ambiguity that arises in multiple inheritance when a class inherits from two or more classes that themselves share a common base class. This creates a diamond-shaped inheritance diagram.

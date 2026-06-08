@@ -22,12 +22,12 @@ By making the data private and the methods public, the class maintains complete 
 class Employee {
 private:
     // Private data members - hidden from the outside
-    std::string name;
+    string name;
     double salary;
 
 public:
     // Public constructor to initialize the object
-    Employee(std::string n, double s) {
+    Employee(string n, double s) {
         name = n;
         salary = s;
     }
@@ -46,7 +46,7 @@ public:
 
     // Public method to display info
     void display() {
-        std::cout << "Name: " << name << ", Salary: " << salary << std::endl;
+        cout << "Name: " << name << ", Salary: " << salary << endl;
     }
 };
 
@@ -61,7 +61,7 @@ int main() {
     emp.display();
 
     // Use the public method to access the data
-    std::cout << "John's salary is: " << emp.getSalary() << std::endl;
+    cout << "John's salary is: " << emp.getSalary() << endl;
 
     return 0;
 }
