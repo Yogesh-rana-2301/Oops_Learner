@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 08/06/2026
+
 # 22. Abstraction
 
 Abstraction is one of the four core principles of Object-Oriented Programming (OOP). It means focusing on the **essential qualities** of an object rather than the specific details of its implementation.
