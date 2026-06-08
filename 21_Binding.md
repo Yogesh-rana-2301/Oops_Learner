@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 08/06/2026
+
 # 21. Binding in C++
 
 In programming, **binding** refers to the process of associating a function call with the actual code of the function that will be executed. In C++, this can happen at two different times: at compile time or at runtime. This leads to two types of binding: early binding and late binding.
