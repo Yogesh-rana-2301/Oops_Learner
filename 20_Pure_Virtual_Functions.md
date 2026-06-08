@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 08/06/2026
+
 # 20. Pure Virtual Functions and Abstract Classes
 
 ## Pure Virtual Function
@@ -16,7 +18,7 @@ public:
 };
 ```
 
-The `= 0` syntax does not mean assigning zero to the function pointer. It is simply the C++ notation to mark a virtual function as "pure."
+The `= 0` syntax does not mean assigning zero to the function pointer. <mark>It is simply the C++ notation to mark a virtual function as "pure."</mark>
 
 ## Abstract Class
 
