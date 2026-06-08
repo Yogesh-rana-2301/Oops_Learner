@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 08/06/2026
+
 # 17. Operator Overloading
 
 Operator overloading is a form of compile-time polymorphism where you can provide a special meaning to a C++ operator for a user-defined data type (like a class or struct). It allows you to use operators like `+`, `-`, `==`, `<<`, etc., with objects of your own classes, making the code more intuitive and readable.
