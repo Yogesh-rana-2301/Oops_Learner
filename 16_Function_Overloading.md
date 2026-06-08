@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 08/06/2026
+
 # 16. Function Overloading
 
 Function overloading is a feature in C++ that allows you to define multiple functions with the same name in the same scope, as long as they have different parameter lists. This is a form of **compile-time polymorphism** (also known as static polymorphism) because the compiler determines which function to call at compile time based on the arguments provided.
@@ -68,7 +70,7 @@ Printing a string and an int: Test, 123
 
 ## Compile-Time Polymorphism
 
-Function overloading is a form of compile-time polymorphism. Here's why:
+Function overloading is a form of <mark>compile-time polymorphism.</mark> Here's why:
 
 - **Polymorphism** means "many forms." Here, the `print()` function has many forms.
 - **Compile-Time** means the decision of which function to call is made when the code is compiled. The compiler looks at the function call (e.g., `print(10);`) and matches its argument list to the signature of one of the overloaded functions.
