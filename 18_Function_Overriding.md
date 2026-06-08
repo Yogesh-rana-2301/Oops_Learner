@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 08/06/2026
+
 # 18. Function Overriding
 
 Function overriding is a feature of C++ that allows a derived class to provide a specific implementation for a member function that is already defined in its base class. This is a form of **runtime polymorphism** (or dynamic polymorphism).
