@@ -1,3 +1,5 @@
+:white_check_mark: __kritsnasya__ 08/06/2026
+
 # 19. Virtual Functions
 
 A virtual function is a member function in a base class that you expect to be redefined (overridden) in derived classes. It is the C++ mechanism for enabling **late binding** and **runtime polymorphism**.
