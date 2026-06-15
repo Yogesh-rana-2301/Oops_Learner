@@ -154,3 +154,13 @@ Student s1;
 The memory allocated for `s1` will be roughly the size of its member variables (`name`, `age`, `gpa`). The `display()` function's code exists in one place in memory, and when you call `s1.display()`, the program jumps to that code, implicitly passing the address of `s1` so the function knows which object's data to operate on (this is where the `this` pointer comes in).
 
 The exact memory layout can be affected by things like data member alignment and padding, which the compiler adds to optimize memory access.
+
+
+```
+Address: 0 1 2 3 4 5 6 7
+
+char c → goes at 0
+int x → must start at multiple of 4 → next valid = 4
+
+So bytes 1,2,3 → padding -> pad -> pad-> pad-> 4,5,6, 
+```
