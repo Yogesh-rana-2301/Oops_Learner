@@ -144,3 +144,89 @@ public:
     }
 };
 ```
+
+
+
+```
+
+#include <iostream>
+using namespace std;
+
+class MyClass;
+
+// Global function (takes pointer)
+void globalWithPointer(MyClass* obj);
+
+// Global function (takes object reference)
+void globalWithObject(MyClass& obj);
+
+class MyClass {
+private:
+    int value;
+
+public:
+    // Constructor
+    MyClass(int v) : value(v) {}
+
+    // Member function
+    void show() {
+        cout << "Value: " << value << endl;
+    }
+
+    void doSomething() {
+        cout << "\n--- Inside doSomething ---\n";
+
+        // this = pointer to current object
+        cout << "this (address): " << this << endl;
+
+        // *this = actual object
+        cout << "*this (value): ";
+        this->show();
+
+        // Passing pointer
+        globalWithPointer(this);
+
+        // Passing object
+        globalWithObject(*this);
+    }
+
+    // Modify value using pointer
+    void increment() {
+        value++;
+    }
+};
+
+// Global function using pointer
+void globalWithPointer(MyClass* obj) {
+    cout << "\n[Pointer Function]\n";
+    cout << "Address received: " << obj << endl;
+
+    // Access using ->
+    obj->increment();
+    obj->show();
+}
+
+// Global function using reference (object)
+void globalWithObject(MyClass& obj) {
+    cout << "\n[Object Function]\n";
+
+    // Access using .
+    obj.increment();
+    obj.show();
+}
+
+int main() {
+    MyClass obj(10);
+
+    cout << "--- Initial State ---\n";
+    obj.show();
+
+    obj.doSomething();
+
+    cout << "\n--- Final State ---\n";
+    obj.show();
+
+    return 0;
+}
+
+```
