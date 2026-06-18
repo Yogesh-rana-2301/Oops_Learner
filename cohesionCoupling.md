@@ -83,3 +83,34 @@ This `FileUtility` class exhibits low cohesion as it mixes file operations, data
 
 - **Dependency Inversion Principle (DIP)**: By relying on abstractions rather than concrete implementations, DIP promotes **low coupling**, making systems more modular and adaptable.
 <br>
+
+
+
+
+
+## 15. Compare _inheritance_ vs. _mixin_ vs. _composition_.
+
+**Inheritance**, **mixins**, and **composition** are all techniques in object-oriented programming that deal with code reuse and the relationship between objects or classes.
+
+Let's look into the details and compare them:
+
+### Inheritance
+
+- **Definition**: A class (subclass) inherits properties and behaviors from another class (superclass).
+- **Relationship**: "is-a" (e.g., a `Car` is a `Vehicle`).
+- **Pros**: Direct way to reuse code; establishes intuitive relationships.
+- **Cons**: Can lead to complex hierarchies; potential for over-generalization.
+
+### Mixin
+
+- **Definition**: A class that offers methods to other classes without being a standalone entity. Common in languages without multiple inheritance, such as Python.
+- **Relationship**: "kind-of-a" or "can-do-this" (e.g., a `Helicopter` can fly like a `Bird`).
+- **Pros**: Reuses code across classes; avoids deep inheritance issues.
+- **Cons**: Method source can be unclear; potential name clashes.
+
+### Composition
+
+- **Definition**: Building objects by combining simpler ones. Emphasizes a "has-a" relationship.
+- **Relationship**: "has-a" (e.g., a `Car` has an `Engine`).
+- **Pros**: Encourages modular design; components can be easily swapped.
+- **Cons**: May need more design upfront; can require more boilerplate code.
